@@ -1,0 +1,29 @@
+<script>
+function uploadToImgbb() {
+  const fileInput = document.getElementById("uploadImage");
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("กรุณาเลือกรูปก่อน");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("image", file);
+
+  fetch("https://api.imgbb.com/1/upload?key=ใส่_API_KEY_ของคุณที่นี่", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    const imageUrl = data.data.url;
+    document.getElementById("previewImage").src = imageUrl;
+    document.getElementById("previewImage").style.display = "block";
+    alert("✅ อัปโหลดสำเร็จ!\nลิงก์รูป: " + imageUrl);
+  })
+  .catch(err => {
+    console.error("❌ Upload error:", err);
+    alert("เกิดข้อผิดพลาดในการอัปโหลด");
+  });
+}
+</script>
