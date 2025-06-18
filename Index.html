@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>สมัครเป็นผู้รับจ้าง - จองคิวแทนคุณ</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f5f9ff; color: #333; }
+    form { background: white; padding: 2rem; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+    input, select, textarea { width: 100%; margin-bottom: 1rem; padding: 0.6rem; border: 1px solid #ccc; border-radius: 8px; }
+    button { background: #007BFF; color: white; border: none; padding: 0.8rem; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+
+  <h2>📋 สมัครเป็นผู้รับจ้าง</h2>
+  <form name="register-form">
+    <label>ชื่อ-นามสกุล:</label>
+    <input type="text" name="fullname" required />
+
+    <label>เบอร์โทร:</label>
+    <input type="tel" name="phone" required />
+
+    <label>LINE ID:</label>
+    <input type="text" name="lineid" required />
+
+    <label>ประเภทงานที่รับ:</label>
+    <select name="jobtype" required>
+      <option value="รับหิ้ว">🛍 รับหิ้วสินค้า</option>
+      <option value="ต่อแถวจอง">📌 ต่อแถวจองคิว</option>
+      <option value="แฟนคลับ">🎤 งานแฟนคลับ</option>
+      <option value="จองโต๊ะ">🍻 จองโต๊ะร้านเหล้า</option>
+      <option value="เพื่อนนั่งชิลล์">👫 เพื่อนนั่งชิลล์</option>
+    </select>
+
+    <label>เรทราคา (บาท/ชั่วโมง):</label>
+    <input type="number" name="price" required />
+
+    <label>อัปโหลดรูปโปรไฟล์ (URL):</label>
+    <input type="url" name="profilepic" placeholder="เช่น https://..." required />
+
+    <label>เกี่ยวกับฉัน / ประสบการณ์:</label>
+    <textarea name="bio" rows="4"></textarea>
+
+    <label><input type="checkbox" name="agree" required /> ฉันยอมรับเงื่อนไขการหักค่าธรรมเนียม 25% จากค่าจ้าง</label>
+
+    <button type="submit">📨 ส่งคำสมัคร</button>
+  </form>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxxxxx/exec'; // 👈 เปลี่ยน URL นี้
+    const form = document.forms['register-form'];
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert('✅ ส่งใบสมัครสำเร็จ! รอการอนุมัติภายใน 24 ชม.'))
+        .catch(error => alert('❌ เกิดข้อผิดพลาด: ' + error.message));
+    });
+  </script>
+
+</body>
+      </html>
