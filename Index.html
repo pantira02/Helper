@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>โปรไฟล์ผู้รับบริการ - ThanQ</title>
+  <title>โปรไฟล์ผู้รับบริการ | ThanQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,52 +11,75 @@
     <h2>👤 โปรไฟล์ผู้รับบริการ</h2>
 
     <!-- 📸 อัปโหลดรูป -->
-    <label>📸 อัปโหลดรูปโปรไฟล์</label>
-    <input type="file" id="uploadImage">
-    <button onclick="uploadToImgbb()">อัปโหลด</button>
-    <img id="previewImage" src="" alt="รูปโปรไฟล์" />
+    <section>
+      <label>📸 อัปโหลดรูปโปรไฟล์</label>
+      <input type="file" id="uploadImage">
+      <button onclick="uploadToImgbb()">อัปโหลด</button>
+      <img id="previewImage" src="" alt="รูปโปรไฟล์" />
+    </section>
 
-    <!-- 💬 ระบบแชท -->
-    <a href="https://line.me/ti/p/~your-line-id" class="chat-button">💬 แชทกับคนจ้าง</a>
+    <!-- 💬 แชท -->
+    <section>
+      <label>💬 แชทกับคนจ้าง</label>
+      <a href="https://line.me/ti/p/~your-line-id" class="chat-button" target="_blank">กดเพื่อแชทผ่าน LINE</a>
+    </section>
 
-    <!-- ⭐ ให้คะแนน/รีวิว -->
-    <label>⭐ คะแนนจากคนจ้าง:</label>
-    <div id="ratingStars">★★★★★</div>
+    <!-- ⭐ คะแนนจากคนจ้าง -->
+    <section>
+      <label>⭐ คะแนนจากคนจ้าง</label>
+      <div id="ratingStars">★★★★☆ (4.5)</div>
+    </section>
 
     <!-- 🏅 แต้มสะสม -->
-    <label>🏅 แต้มสะสม:</label>
-    <div id="points">120 แต้ม (ครบ 10 งาน รับโบนัส 500฿)</div>
+    <section>
+      <label>🏅 ระบบสะสมแต้ม + โบนัส</label>
+      <p>คุณรับงานแล้ว 7 ครั้งในรอบ 3 เดือน<br>อีก 3 ครั้งจะได้รับโบนัส 500 บาท 🎉</p>
+    </section>
 
-    <!-- 📚 ประวัติงาน -->
-    <label>📚 ประวัติงานย้อนหลัง:</label>
-    <ul id="jobHistory">
-      <li>12 มิ.ย. - พารากอน - คุณเมย์</li>
-      <li>15 มิ.ย. - เดอะมอลล์บางกะปิ - คุณนัท</li>
-    </ul>
+    <!-- 📚 ประวัติงานย้อนหลัง -->
+    <section>
+      <label>📚 ประวัติงานย้อนหลัง</label>
+      <ul>
+        <li>15 มิ.ย. - เซ็นทรัลลาดพร้าว - คุณตั้ม</li>
+        <li>12 มิ.ย. - สยามพารากอน - คุณฟ้า</li>
+      </ul>
+    </section>
 
-    <!-- 🔔 แจ้งเตือนเมื่อมีงาน -->
-    <label>🔔 การแจ้งเตือน:</label>
-    <input type="checkbox" checked> แจ้งเตือนผ่าน LINE OA
+    <!-- 🔔 แจ้งเตือน -->
+    <section>
+      <label>🔔 การแจ้งเตือนเมื่อมีคนจอง</label>
+      <input type="checkbox" checked> แจ้งเตือนผ่าน LINE OA
+    </section>
 
     <!-- 👤 ให้คะแนนคนจ้าง -->
-    <label>👤 ให้คะแนนคนจ้าง:</label>
-    <select>
-      <option>⭐️⭐️⭐️⭐️⭐️</option>
-      <option>⭐️⭐️⭐️⭐️</option>
-      <option>⭐️⭐️⭐️</option>
-    </select>
+    <section>
+      <label>👤 ให้คะแนนคนจ้าง</label>
+      <select>
+        <option>⭐️⭐️⭐️⭐️⭐️ ดีมาก</option>
+        <option>⭐️⭐️⭐️⭐️ ดี</option>
+        <option>⭐️⭐️⭐️ พอใช้</option>
+        <option>⭐️⭐️ แย่</option>
+      </select>
+    </section>
 
     <!-- 📍 เขตที่รับงาน -->
-    <label>📍 เขตที่รับงาน:</label>
-    <input type="text" placeholder="เช่น รัชดา, ลาดพร้าว" />
+    <section>
+      <label>📍 เขตที่รับงาน</label>
+      <input type="text" placeholder="เช่น รังสิต, บางนา, ห้วยขวาง">
+    </section>
 
-    <!-- 💸 ค่าจ้าง -->
-    <label>💸 ค่าจ้างที่รับ (บาท/ครั้ง):</label>
-    <input type="number" placeholder="ใส่จำนวน" />
+    <!-- 💸 เรทค่าจ้าง -->
+    <section>
+      <label>💸 ค่าจ้างที่รับ (บาท/ครั้ง)</label>
+      <input type="number" placeholder="เช่น 200">
+    </section>
 
-    <!-- 💳 หักเงินอัตโนมัติ -->
-    <p class="note">💳 ระบบจะหักค่าธรรมเนียม 25% จากค่าจ้างอัตโนมัติ</p>
+    <!-- 💳 แจ้งระบบหักเงิน -->
+    <section>
+      <p class="note">💳 ระบบหักค่าธรรมเนียม 25% อัตโนมัติจากค่าจ้างต่อดีล</p>
+    </section>
 
+    <!-- ปุ่มบันทึก -->
     <button class="submit-btn">💾 บันทึกข้อมูล</button>
   </div>
 
