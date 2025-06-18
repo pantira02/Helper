@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <title>สมัครเป็นผู้รับจ้าง - จองคิวแทนคุณ</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f5f9ff; color: #333; }
-    form { background: white; padding: 2rem; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
-    input, select, textarea { width: 100%; margin-bottom: 1rem; padding: 0.6rem; border: 1px solid #ccc; border-radius: 8px; }
-    button { background: #007BFF; color: white; border: none; padding: 0.8rem; border-radius: 8px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-  </style>
+  <meta charset="UTF-8">
+  <title>โปรไฟล์ผู้รับบริการ - ThanQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h2>👤 โปรไฟล์ผู้รับบริการ</h2>
 
-  <h2>📋 สมัครเป็นผู้รับจ้าง</h2>
-  <form name="register-form">
-    <label>ชื่อ-นามสกุล:</label>
-    <input type="text" name="fullname" required />
+    <!-- 📸 อัปโหลดรูป -->
+    <label>📸 อัปโหลดรูปโปรไฟล์</label>
+    <input type="file" id="uploadImage">
+    <button onclick="uploadToImgbb()">อัปโหลด</button>
+    <img id="previewImage" src="" alt="รูปโปรไฟล์" />
 
-    <label>เบอร์โทร:</label>
-    <input type="tel" name="phone" required />
+    <!-- 💬 ระบบแชท -->
+    <a href="https://line.me/ti/p/~your-line-id" class="chat-button">💬 แชทกับคนจ้าง</a>
 
-    <label>LINE ID:</label>
-    <input type="text" name="lineid" required />
+    <!-- ⭐ ให้คะแนน/รีวิว -->
+    <label>⭐ คะแนนจากคนจ้าง:</label>
+    <div id="ratingStars">★★★★★</div>
 
-    <label>ประเภทงานที่รับ:</label>
-    <select name="jobtype" required>
-      <option value="รับหิ้ว">🛍 รับหิ้วสินค้า</option>
-      <option value="ต่อแถวจอง">📌 ต่อแถวจองคิว</option>
-      <option value="แฟนคลับ">🎤 งานแฟนคลับ</option>
-      <option value="จองโต๊ะ">🍻 จองโต๊ะร้านเหล้า</option>
-      <option value="เพื่อนนั่งชิลล์">👫 เพื่อนนั่งชิลล์</option>
+    <!-- 🏅 แต้มสะสม -->
+    <label>🏅 แต้มสะสม:</label>
+    <div id="points">120 แต้ม (ครบ 10 งาน รับโบนัส 500฿)</div>
+
+    <!-- 📚 ประวัติงาน -->
+    <label>📚 ประวัติงานย้อนหลัง:</label>
+    <ul id="jobHistory">
+      <li>12 มิ.ย. - พารากอน - คุณเมย์</li>
+      <li>15 มิ.ย. - เดอะมอลล์บางกะปิ - คุณนัท</li>
+    </ul>
+
+    <!-- 🔔 แจ้งเตือนเมื่อมีงาน -->
+    <label>🔔 การแจ้งเตือน:</label>
+    <input type="checkbox" checked> แจ้งเตือนผ่าน LINE OA
+
+    <!-- 👤 ให้คะแนนคนจ้าง -->
+    <label>👤 ให้คะแนนคนจ้าง:</label>
+    <select>
+      <option>⭐️⭐️⭐️⭐️⭐️</option>
+      <option>⭐️⭐️⭐️⭐️</option>
+      <option>⭐️⭐️⭐️</option>
     </select>
 
-    <label>เรทราคา (บาท/ชั่วโมง):</label>
-    <input type="number" name="price" required />
+    <!-- 📍 เขตที่รับงาน -->
+    <label>📍 เขตที่รับงาน:</label>
+    <input type="text" placeholder="เช่น รัชดา, ลาดพร้าว" />
 
-    <label>อัปโหลดรูปโปรไฟล์ (URL):</label>
-    <input type="url" name="profilepic" placeholder="เช่น https://..." required />
+    <!-- 💸 ค่าจ้าง -->
+    <label>💸 ค่าจ้างที่รับ (บาท/ครั้ง):</label>
+    <input type="number" placeholder="ใส่จำนวน" />
 
-    <label>เกี่ยวกับฉัน / ประสบการณ์:</label>
-    <textarea name="bio" rows="4"></textarea>
+    <!-- 💳 หักเงินอัตโนมัติ -->
+    <p class="note">💳 ระบบจะหักค่าธรรมเนียม 25% จากค่าจ้างอัตโนมัติ</p>
 
-    <label><input type="checkbox" name="agree" required /> ฉันยอมรับเงื่อนไขการหักค่าธรรมเนียม 25% จากค่าจ้าง</label>
+    <button class="submit-btn">💾 บันทึกข้อมูล</button>
+  </div>
 
-    <button type="submit">📨 ส่งคำสมัคร</button>
-  </form>
-
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxxxxx/exec'; // 👈 เปลี่ยน URL นี้
-    const form = document.forms['register-form'];
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => alert('✅ ส่งใบสมัครสำเร็จ! รอการอนุมัติภายใน 24 ชม.'))
-        .catch(error => alert('❌ เกิดข้อผิดพลาด: ' + error.message));
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
-      </html>
+</html>
